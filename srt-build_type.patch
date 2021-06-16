@@ -1,0 +1,23 @@
+--- srt-1.4.3/CMakeLists.txt.orig	2021-04-27 08:44:11.000000000 +0000
++++ srt-1.4.3/CMakeLists.txt	2021-06-16 23:23:24.120623326 +0000
+@@ -64,13 +64,13 @@
+ # Set CMAKE_BUILD_TYPE properly, now that you know
+ # that ENABLE_DEBUG is set as it should.
+ 
+-if (ENABLE_DEBUG EQUAL 2)
+-	set (CMAKE_BUILD_TYPE "RelWithDebInfo")
+-elseif (ENABLE_DEBUG) # 1, ON, YES, TRUE, Y, or any other non-zero number
+-	set (CMAKE_BUILD_TYPE "Debug")
+-else()
+-	set (CMAKE_BUILD_TYPE "Release")
+-endif()
++#if (ENABLE_DEBUG EQUAL 2)
++#	set (CMAKE_BUILD_TYPE "RelWithDebInfo")
++#elseif (ENABLE_DEBUG) # 1, ON, YES, TRUE, Y, or any other non-zero number
++#	set (CMAKE_BUILD_TYPE "Debug")
++#else()
++#	set (CMAKE_BUILD_TYPE "Release")
++#endif()
+ 
+ message(STATUS "BUILD TYPE: ${CMAKE_BUILD_TYPE}")
+ 
