@@ -5,13 +5,13 @@
 Summary:	Secure Reliable Transport library
 Summary(pl.UTF-8):	Biblioteka Secure Reliable Transport
 Name:		srt
-Version:	1.4.4
+Version:	1.5.1
 Release:	1
 License:	MPL v2.0
 Group:		Libraries
 #Source0Download: https://github.com/Haivision/srt/releases
 Source0:	https://github.com/Haivision/srt/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	946735c0d8e976c6b8ac43f1d159c750
+# Source0-md5:	9d746de8bbc94ad327215d89801ac2fb
 Patch0:		%{name}-build_type.patch
 URL:		https://www.srtalliance.org/
 BuildRequires:	cmake >= 2.8.12
@@ -86,13 +86,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.md docs/apps/*.md docs/{features,misc}/{*.md,images}
+%doc README.md docs/apps/*.md docs/{features,misc}
 %attr(755,root,root) %{_bindir}/srt-ffplay
 %attr(755,root,root) %{_bindir}/srt-file-transmit
 %attr(755,root,root) %{_bindir}/srt-live-transmit
 %attr(755,root,root) %{_bindir}/srt-tunnel
 %attr(755,root,root) %{_libdir}/libsrt.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libsrt.so.1.4
+%attr(755,root,root) %ghost %{_libdir}/libsrt.so.1.5
 
 %files devel
 %defattr(644,root,root,755)
