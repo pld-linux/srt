@@ -15,10 +15,13 @@ Source0:	https://github.com/Haivision/srt/archive/v%{version}/%{name}-%{version}
 Patch0:		%{name}-build_type.patch
 URL:		https://www.srtalliance.org/
 BuildRequires:	cmake >= 2.8.12
+%ifnarch %arch_with_atomics64
+BuildRequires:	libatomic-devel
+%endif
 BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	pkgconfig
 BuildRequires:	openssl-devel
-BuildRequires:	rpmbuild(macros) >= 1.605
+BuildRequires:	rpmbuild(macros) >= 2.025
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
