@@ -1,11 +1,16 @@
---- srt-1.5.1/CMakeLists.txt.orig	2023-04-04 22:45:12.405917093 +0200
-+++ srt-1.5.1/CMakeLists.txt	2023-04-05 06:25:29.629542138 +0200
-@@ -68,15 +68,12 @@ if (NOT MICROSOFT)
+--- srt-1.5.4/CMakeLists.txt.orig	2025-03-23 16:19:37.209633897 +0100
++++ srt-1.5.4/CMakeLists.txt	2025-03-23 16:21:38.892308019 +0100
+@@ -73,7 +73,6 @@ if (NOT MICROSOFT)
  	# Set CMAKE_BUILD_TYPE properly, now that you know
  	# that ENABLE_DEBUG is set as it should.
  	if (ENABLE_DEBUG EQUAL 2)
 -		set (CMAKE_BUILD_TYPE "RelWithDebInfo")
- 		add_definitions(-DNDEBUG)
+ 		if (ENABLE_ASSERT)
+ 			# Add _DEBUG macro if explicitly requested, to enable SRT_ASSERT().
+ 			add_definitions(-D_DEBUG)
+@@ -81,12 +80,10 @@ if (NOT MICROSOFT)
+ 			add_definitions(-DNDEBUG)
+ 		endif()
  	elseif (ENABLE_DEBUG) # 1, ON, YES, TRUE, Y, or any other non-zero number
 -		set (CMAKE_BUILD_TYPE "Debug")
  
