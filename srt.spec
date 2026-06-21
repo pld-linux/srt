@@ -5,21 +5,22 @@
 Summary:	Secure Reliable Transport library
 Summary(pl.UTF-8):	Biblioteka Secure Reliable Transport
 Name:		srt
-Version:	1.5.4
+Version:	1.5.5
 Release:	1
 License:	MPL v2.0
 Group:		Libraries
 #Source0Download: https://github.com/Haivision/srt/releases
 Source0:	https://github.com/Haivision/srt/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	08e946bbcdb6f9dc3863de5dd8a48aa3
+# Source0-md5:	84b44247d49040eec8f489103e8f319a
 Patch0:		%{name}-build_type.patch
 URL:		https://www.srtalliance.org/
-BuildRequires:	cmake >= 2.8.12
+BuildRequires:	cmake >= 3.5
 %ifnarch %arch_with_atomics64
 BuildRequires:	libatomic-devel
 %endif
 BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	pkgconfig
+# or gnutls, mbedtls, botan >= 3.0.0 with -DUSE_ENCLIB=gnutls|mbledtls|botan
 BuildRequires:	openssl-devel
 BuildRequires:	rpmbuild(macros) >= 2.025
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -94,12 +95,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/srt-file-transmit
 %attr(755,root,root) %{_bindir}/srt-live-transmit
 %attr(755,root,root) %{_bindir}/srt-tunnel
-%attr(755,root,root) %{_libdir}/libsrt.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libsrt.so.1.5
+%{_libdir}/libsrt.so.*.*.*
+%ghost %{_libdir}/libsrt.so.1.5
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libsrt.so
+%{_libdir}/libsrt.so
 %{_includedir}/srt
 %{_pkgconfigdir}/haisrt.pc
 %{_pkgconfigdir}/srt.pc
