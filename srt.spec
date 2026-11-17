@@ -5,13 +5,13 @@
 Summary:	Secure Reliable Transport library
 Summary(pl.UTF-8):	Biblioteka Secure Reliable Transport
 Name:		srt
-Version:	1.5.5
+Version:	1.5.7
 Release:	1
 License:	MPL v2.0
 Group:		Libraries
 #Source0Download: https://github.com/Haivision/srt/releases
 Source0:	https://github.com/Haivision/srt/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	84b44247d49040eec8f489103e8f319a
+# Source0-md5:	3ccc21ed2ed26fcfe6496b8c281137ac
 Patch0:		%{name}-build_type.patch
 URL:		https://www.srtalliance.org/
 BuildRequires:	cmake >= 3.5
@@ -39,8 +39,8 @@ nieprzewidywalnych sieciach, takich jak Internet.
 Summary:	Header files for SRT library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki SRT
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
-Requires:	libstdc++-devel >= 6:4.7
+Requires:	%{name}%{?_isa} = %{version}-%{release}
+Requires:	libstdc++-devel%{?_isa} >= 6:4.7
 
 %description devel
 Header files for SRT library.
@@ -52,7 +52,7 @@ Pliki nagłówkowe biblioteki SRT.
 Summary:	Static SRT library
 Summary(pl.UTF-8):	Statyczna biblioteka SRT
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
+Requires:	%{name}-devel%{?_isa} = %{version}-%{release}
 
 %description static
 Static SRT library.
